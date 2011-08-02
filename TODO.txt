@@ -1,0 +1,2 @@
+Get current SauceJob Id and use it to put selenium logs in file 
+Take saucekey out of mvn pom and put in file
