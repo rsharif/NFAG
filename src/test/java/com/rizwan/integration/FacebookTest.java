@@ -1,13 +1,12 @@
 /**
  * Copyright 2011 Rizwan Sharif
  */
-package com.rizwan.ui;
+package com.rizwan.integration;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -16,12 +15,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.rizwan.helper.FacebookField;
+import com.rizwan.helper.FacebookHelper;
+import com.rizwan.helper.FacebookXpathHelper;
 import com.rizwan.helper.FacebookHomePage;
 import com.rizwan.helper.FacebookLoginPage;
 import com.rizwan.helper.ShareWith;
 import com.thoughtworks.selenium.DefaultSelenium;
- 
 
 /**
  * @author Rizwan Sharif
@@ -37,7 +36,7 @@ public class FacebookTest {
 	public  void setup(){
 		Properties properties = new Properties();
 		try {
-		    properties.load(this.getClass().getClassLoader().getSystemResourceAsStream("app.properties"));
+		    properties.load(this.getClass().getClassLoader().getSystemResourceAsStream("selenium.properties"));
 		} catch (IOException e) {
 		
 		}
@@ -57,7 +56,7 @@ public class FacebookTest {
 	}
 	@Test(dependsOnMethods={"homePageTest"})
 	public void loginTest() throws Exception {
-		homePage=loginPage.loginByPressingEnterKey("nfagtester@gmail.com", "12345678" );
+		homePage=loginPage.loginByPressingEnterKey(FacebookHelper.LOGIN_TEST_USERNAME, FacebookHelper.LOGIN_TEST_PASSWORD );
 		assertTrue(homePage.isHomePageActive());
 	}
 	
@@ -71,7 +70,7 @@ public class FacebookTest {
 	}
 	@Test(dependsOnMethods={"updateStatusTest"})
 	public void logoutTest() throws Exception{	
-		homePage.logout(FacebookField.LOGOUT_BUTTON_LOCATER);
+		homePage.logout(FacebookXpathHelper.LOGOUT_BUTTON_LOCATER);
 		assertFalse(homePage.isHomePageActive());
 		assertTrue(loginPage.isLoginPageActive());	
 		

@@ -1,9 +1,8 @@
 package com.rizwan.helper;
 
-public class FacebookField {
+public class FacebookXpathHelper {
 
-	public final static String DEFAULT_SELENIUM_WAIT="1500000";
-	
+
 	public final static String STATUS_UPDATE_TEXTAREA_LOCATER="//textarea[@name='xhpc_message_text']";
 	public final static String LOGIN_PAGE_USERNAME_FIELD_LOCATER= "//input[@id='email']";
 	public final static String LOGIN_PAGE_PASSWORD_FIELD_LOCATER= "//input[@id='pass']";
