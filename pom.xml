@@ -3,6 +3,9 @@
   <groupId>com.rizwan</groupId>
   <artifactId>functional-test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
   	<dependency>
 		<groupId>org.seleniumhq.selenium.client-drivers</groupId>
@@ -24,6 +27,7 @@
           <configuration>
               <skip>true</skip>
           </configuration>
+          <version>2.6</version>
           <executions>
               <execution>
                   <phase>integration-test</phase>
