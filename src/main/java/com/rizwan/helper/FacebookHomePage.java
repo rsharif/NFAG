@@ -10,6 +10,7 @@ public class FacebookHomePage {
 	}
 	
 	public FacebookHomePage updateStatus(String status , ShareWith privacy ) throws Exception{
+		selenium.waitForCondition("selenium.isElementPresent(\""+FacebookXpathHelper.STATUS_LINK_AFTER_SHARE+"\");", FacebookHelper.DEFAULT_SELENIUM_WAIT);
 		selenium.click(FacebookXpathHelper.STATUS_LINK_AFTER_SHARE);
 		selenium.waitForCondition(" selenium.isVisible(\""+FacebookXpathHelper.SHARE_BUTTON_LOCATER+"\"); ", FacebookHelper.DEFAULT_SELENIUM_WAIT);
 		selenium.type(FacebookXpathHelper.STATUS_UPDATE_TEXTAREA_LOCATER, status);
